@@ -19,47 +19,51 @@ var london = new Feature({
 london.setStyle(
   new Style({
     image: new Icon({
-      color: 'rgba(255, 0, 0, .5)',
       crossOrigin: 'anonymous',
       src: 'marker.png',
-      scale: 0.2,
+      scale: 0.08,
+    }),
+  })
+);
+
+var toronto = new Feature({
+  geometry: new Point(fromLonLat([-79.3832, 43.6532])),
+  name: "toronto"
+});
+
+toronto.setStyle(
+  new Style({
+    image: new Icon({
+      crossOrigin: 'anonymous',
+      src: 'marker.png',
+      scale: 0.08,
     }),
   })
 );
 
 var iconFeature = new Feature({
-  geometry: new Point([0, 0]),
-  name: 'Null Island',
-  population: 4000,
-  rainfall: 500,
+  geometry: new Point(fromLonLat([-123.1207, 49.2827])),
+
 });
 
 var iconStyle = new Style({
   image: new Icon({
-    anchor: [0, 0],
-    anchorXUnits: 'fraction',
-    anchorYUnits: 'pixels',
+    
+    scale: 0.08,
     src: 'marker.png',
   }),
 });
 
-
 iconFeature.setStyle(iconStyle);
 
-console.log(iconFeature);
 
 var vectorSource = new VectorSource({
-  features: [london]
+  features: [iconFeature, london, toronto]
 });
 
 var vectorLayer = new VectorLayer({
   source: vectorSource,
 });
-
-
-console.log(vectorLayer);
-
-
 
 var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
@@ -76,14 +80,17 @@ var overlay = new Overlay({
 var map = new Map({
   layers: [new TileLayer({
     source: new OSM()
-  })], 
+  }),vectorLayer], 
   overlays: [overlay],
-  target: 'map',
+  target: document.getElementById('map'),
   view: new View({
     center: [0, 0],
     zoom: 2,
+    controls: []
   }),
 });
+
+//map.addLayer(EUCountriesGeoJSON)
 
 closer.onclick = function () {
   overlay.setPosition(undefined);
@@ -91,11 +98,21 @@ closer.onclick = function () {
   return false;
 };
 
-map.on('singleclick', function (evt) {
+map.on('click', function (evt) {
   var coordinate = evt.coordinate;
   var hdms = toStringHDMS(toLonLat(coordinate));
+  var feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+    return feature;
+  });
 
-  content.innerHTML = '<p>ARTICLE</p><code>' + hdms + '</code>';
-  console.log(hdms);
-  overlay.setPosition(coordinate);
+  if(feature){
+
+    content.innerHTML = '<p>ARTICLE</p><img src="download.jfif">';
+    overlay.setPosition(coordinate);
+    console.log(feature.get('name'));
+  }else{
+
+    overlay.setPosition(undefined);
+    closer.blur(); 
+  }
 });
