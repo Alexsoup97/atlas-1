@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" type="text/css">
     <link rel="stylesheet" href="map.css" type="text/css">
     <link rel="stylesheet" href="navbar.css" type="text/css">
@@ -17,18 +19,25 @@
   <body>
     <div class="topnav" id="myTopnav">
       <img class="logo" src="./images/logo.png" alt="logo" width="140px" height="48px" position="absolute">
-      <a href="#home" class="active">Home</a>
-    
+      <a href="home.html">Home</a>
+      <a href="#about" class="active">About</a>
       <a href="#news">News</a>
-      <a href="#about">About</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
       <input type="text" placeholder="Search..">
-
     </div>
 
+    <h1 class="aboutText">About ATLAS</h1>
+    <h2 class="aboutText">A web platform that gathers relevant worldwide news across various genres and precisely maps articles to their respective locations. 
+      Through the interactive layout, users gain further insight and visual awareness into pertinent current events. </h2>
+    
+    <h2 class="aboutText">Currently ATLAS is a front-end concept, however further development will likely involve more 
+      web frameworks and API integration to retrieve the news articles, and a database to store user preferences.</h2>
 
+    <h2 class="aboutText">Red pinpoint markers indicate articles that are recommended to users, while highlighted circle areas indicate areas of breaking news around the world.</h2>
+    
+    <img class="mapImage" src="images/map.jpg">
     <script src="index.js"></script>
   </body>
 </html>

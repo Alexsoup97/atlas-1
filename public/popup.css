@@ -7,8 +7,21 @@
 	border: 1px solid #cccccc;
 	bottom: 12px;
 	left: -50px;
-	min-width: 280px;
+	min-width: 500px;
+	min-height: 80px;
+
 }
+
+.test{
+	background: white;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-gap: 20px;
+    border-radius: 10px;
+    box-shadow: 10px;
+	
+}
+
 .ol-popup:after, .ol-popup:before {
 	top: 100%;
 	border: solid transparent;
@@ -39,4 +52,86 @@
 
 .ol-popup-closer:after {
 	content: "✖";
+}
+
+.left-preview {
+
+    background-size: cover;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#london.left-preview{
+	background-position: left-center;
+    background-image: url(images/vaccine.png);
+	
+}
+
+#washington.left-preview{
+	background-position: center;
+    background-image: url(images/riots.jpg);
+	
+  
+}
+
+#minneapolis.left-preview{
+	background-position: center;
+    background-image: url(images/derekchauvin.jfif);+
+	
+  
+}
+
+#china.left-preview{
+ 
+    background-image: url(images/uyghurschina.jfif);+
+
+}
+
+
+
+.right-preview {
+    font-size: 13px;
+    padding: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+	
+}
+
+.right-preview h2 {
+	color: hsl(217, 19%, 35%);
+    font-weight: 700;
+	font-size:17px
+}
+
+.right-preview p {
+
+	color: #d3d3d3;
+    line-height: 20px;
+    padding-bottom: 10px;
+	font-size:14px
+}
+
+.author{
+	display:grid;
+	grid-template-columns: 60px 1fr 60px;
+    grid-gap: 0px;
+
+}
+
+.name h4{
+    color: hsl(217, 19%, 35%);
+    font-weight: 700;
+    margin: 0px;
+    padding-top: 0px;
+	font-size:11px
+
+}
+
+.name p {
+    margin: 0px;
+	font-size:11px
+
 }

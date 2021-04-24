@@ -1,0 +1,18 @@
+.aboutText {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+.mapImage {
+    position: absolute;
+    top: 375px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 10px solid #555;
+}
